@@ -1,19 +1,20 @@
 import axios from 'axios';
 import { useState } from 'react'
+import { useNavigate } from "react-router-dom";
+import { baseUrl } from '../utils/baseUrl';
 
 
-
-function LoginForm({ setPage, url }) {
+export default function LoginForm() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
+    const navigate = useNavigate()
 
     async function handleLogin(event) {
         event.preventDefault();
         try {
-            let { data } = await axios.post(`${url}/apis/login`, { email, password });
-            console.log(data.data.access_token)
-            localStorage.setItem("access_token", data.data.access_token);
+            let { data } = await axios.post(`${baseUrl}/login`, { email, password });
+            // console.log(data)
+            localStorage.setItem("access_token",data.access_token);
 
             // Toastify({
             //     text: "Success Login",
@@ -32,7 +33,7 @@ function LoginForm({ setPage, url }) {
             // }).showToast();
             // setPage('home')
             if (localStorage) {
-                setPage('home')
+                navigate('/home')
             }
         } catch (error) {
             // Toastify({
@@ -51,15 +52,16 @@ function LoginForm({ setPage, url }) {
             //     }
             // }).showToast();
             console.log(error)
+            navigate('/login')
         }
     }
 
     return (
         <>
             <div className="row justify-center align-center mt-[200px]">
-                <div className="ml-30 justify-center flex align-center x-50">
+                <div className="ml-30 justify-center flex align-center">
                     <div className="mt-30">
-                        <span className="text-6xl font-black">Hello There Mr/Ms.....?</span>
+                        <span className="text-7xl font-black">Hello There Mr/Ms.....?</span>
                         <br />
                         <br />
                         <span className="text-1xl font-black">I'm Sorry ... Could you please Log In first ...?</span>
@@ -95,5 +97,3 @@ function LoginForm({ setPage, url }) {
         </>
     )
 }
-
-export default LoginForm
