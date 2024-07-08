@@ -1,0 +1,41 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda+SC:opsz,wght@6..96,400..900&family=Dancing+Script:wght@400..700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Bodoni+Moda+SC:opsz,wght@6..96,400..900&family=Dancing+Script:wght@400..700&display=swap'); */
+
+
+#Fashion {
+    font-family: "Bodoni Moda SC", serif;
+    font-weight: 400;
+    animation-duration: 3s;
+    animation-name: sl;
+}
+@keyframes sl {
+    from{
+        margin-top: 100%;
+    }
+    to{
+        margin-top: 0%;
+    }   
+}
+
+#is {
+
+    font-weight: 500;
+}
+
+#Art {
+    font-family: "Dancing Script", cursive;
+    font-weight: 400;
+    animation-duration: 4s;
+    animation-name: slidein;
+}
+@keyframes slidein {
+    from{
+        margin-right: 100%;
+    }
+    to{
+        margin-right: 0;
+    }   
+}
+
+

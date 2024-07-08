@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import { baseUrl } from '../utils/baseUrl';
-
+import Toastify from 'toastify-js'
 
 export default function LoginForm() {
     const [email, setEmail] = useState("");
@@ -16,42 +16,42 @@ export default function LoginForm() {
             // console.log(data)
             localStorage.setItem("access_token",data.access_token);
 
-            // Toastify({
-            //     text: "Success Login",
-            //     duration: 2000,
-            //     newWindow: true,
-            //     close: true,
-            //     gravity: "bottom",
-            //     position: "right",
-            //     stopOnFocus: true,
-            //     style: {
-            //         background: "#00B29F",
-            //         color: "#17202A",
-            //         boxShadow: "0 5px 10px black",
-            //         fontWeight: "bold"
-            //     }
-            // }).showToast();
+            Toastify({
+                text: "Success Login",
+                duration: 2000,
+                newWindow: true,
+                close: true,
+                gravity: "bottom",
+                position: "right",
+                stopOnFocus: true,
+                style: {
+                    background: "#00B29F",
+                    color: "#17202A",
+                    boxShadow: "0 5px 10px black",
+                    fontWeight: "bold"
+                }
+            }).showToast();
             // setPage('home')
             if (localStorage) {
                 navigate('/home')
             }
         } catch (error) {
-            // Toastify({
-            //     text: error.response.data.error,
-            //     duration: 2000,
-            //     newWindow: true,
-            //     close: true,
-            //     gravity: "bottom",
-            //     position: "right",
-            //     stopOnFocus: true,
-            //     style: {
-            //         background: "#EF4C54",
-            //         color: "#17202A",
-            //         boxShadow: "0 5px 10px black",
-            //         fontWeight: "bold"
-            //     }
-            // }).showToast();
-            console.log(error)
+            Toastify({
+                text: error.response.data.error,
+                duration: 2000,
+                newWindow: true,
+                close: true,
+                gravity: "bottom",
+                position: "right",
+                stopOnFocus: true,
+                style: {
+                    background: "#EF4C54",
+                    color: "#17202A",
+                    boxShadow: "0 5px 10px black",
+                    fontWeight: "bold"
+                }
+            }).showToast();
+            // console.log(error)
             navigate('/login')
         }
     }

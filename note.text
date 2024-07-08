@@ -1,0 +1,32 @@
+
+
+comst [product , setProduct] = useState(1)
+const [flag , flagProduct ] = useState ()
+
+
+async function fetchProdutc(){
+
+setLoading(true)
+const {data} = await axios.get( " query dalam postman " )
+
+setProduct = (data.data.query)
+}
+
+
+
+usseffect(() =>{
+    console.log("ini akan rerender)
+})
+
+
+usseffect(() =>{
+    fetchProdutc()
+},[])
+
+usseffect(()=>{
+
+    return ()=>{
+        conosle.log("ini akan ke render sebelum keluar ")
+     }                                                                // unmounted , jadi dia jalan seeblum keluar dari halaman 
+
+}, [])

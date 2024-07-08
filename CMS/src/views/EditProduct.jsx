@@ -10,7 +10,7 @@ import { baseUrl } from '../utils/baseUrl';
 function EditProduct(){
     let [products, setProducts] = useState([]);
     let {id} = useParams()
-    console.log(id, '<<<><><><><><><><>')
+    // console.log(id, '<<<><><><><><><><>')
     const navigate = useNavigate();
     async function fetchProducts() {
         try {
@@ -56,7 +56,7 @@ function EditProduct(){
                 imgUrl,
                 stock: Number(stock),
                 categoryId}
-            console.log(editedData,"<<<<<<<<<<<<<<<<<<<<<<<")
+            // console.log(editedData,"<<<<<<<<<<<<<<<<<<<<<<<")
                 await axios.put(`${baseUrl}/products/${id}`,editedData,{
                     headers:{
                         Authorization:`Bearer ${localStorage.access_token}`

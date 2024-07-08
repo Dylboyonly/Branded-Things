@@ -6,11 +6,9 @@ import { baseUrl } from '../utils/baseUrl';
 // import Categories from '../views/Categories';
 
 function NavBar() {
-    // console.log(cate,"fathan cabul")
     // const [categories, setCategories] = useState([]);
     const navigate = useNavigate()
-
-    
+ 
     function handleLogout() {
         localStorage.clear()
         navigate('/login')
@@ -60,17 +58,18 @@ function NavBar() {
             <nav className="bg-gray-800 p-4 flex items-center justify-between">
                 {/* Logo */}
                 <div className="flex items-center">
-                    <span className="text-white text-lg font-semibold">Branded Things</span>
+                    <a href='/home'><span className="text-white text-lg font-semibold">Branded Things</span></a>
                 </div>
 
                 <div className="flex justify-between" style={{ justifyContent: "space-between", gap: "20px" }}>
-                    <div className="dropdown dropdown-hover">
-                        <div tabIndex={0} role="button" className="btn m-1 bg-blue text-white" style={{ width: "120px" }}>Categories</div>
-                        <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                            {/* {Categories} */}
-                            <li><a></a></li>
-                        </ul>
-                    </div>
+                <div className="flex">
+                    {/* Add Product Button */}
+                    <button onClick={()=> navigate('/categories')} className="bg-slate-800 text-white hover:bg-slate-500 px-4 py-2 rounded-lg">Categories</button>
+                </div>
+                <div className="flex">
+                    {/* Add User Button */}
+                    <button onClick={()=> navigate('/add/user')} className="bg-slate-800 text-white hover:bg-slate-500 px-4 py-2 rounded-lg">Add User</button>
+                </div>
                     {/* <div className="dropdown dropdown-hover">
                         <div tabIndex={0} role="button" className="btn m-1 bg-blue text-white" style={{ width: "120px" }} >Filter</div>
                         <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">

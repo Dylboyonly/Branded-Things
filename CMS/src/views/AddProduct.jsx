@@ -6,15 +6,15 @@ import Toastify from 'toastify-js'
 
 function AddProduct() {
     const navigate = useNavigate()
-    async function handleSubmit(e , name , description , price , stock , imgUrl , categoryId) {
+    async function handleSubmit(e , name , description , price ,imgUrl ,stock, categoryId) {
         console.log(e);
         e.preventDefault();
         const newData = {
             name,
             description,
             price: Number(price),
-            stock: Number(stock),
             imgUrl,
+            stock: Number(stock),
             categoryId,
         };
         console.log(newData)

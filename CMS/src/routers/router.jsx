@@ -7,6 +7,8 @@ import LoginForm from "../views/Login";
 import AddProduct from "../views/AddProduct";
 import EditProduct from "../views/EditProduct";
 import Toastify from 'toastify-js'
+import Categories from "../views/Categories";
+import AddUser from "../views/AddUser";
 
 
 const router = createBrowserRouter([
@@ -41,6 +43,10 @@ const router = createBrowserRouter([
         element: <AddProduct propName="Submit" />
     },
     {
+        path: "/add/user",
+        element: <AddUser />
+    },
+    {
         element: <BaseLayout />,
         loader: () => {
             if (!localStorage.access_token) {
@@ -73,6 +79,11 @@ const router = createBrowserRouter([
                 path: "/edit/:id",
                 element: <EditProduct />
             },
+            {
+                path: "/categories",
+                element: <Categories />
+            },
+           
         ]
     },
 ]);
